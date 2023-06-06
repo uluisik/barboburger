@@ -1,0 +1,30 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteRule ^anasayfa.*$ index.php [NC]
+RewriteRule ^bize-ulasin.*$ bize-ulasin.php [NC]
+RewriteRule ^kategori.*$ kategori.php [NC]
+RewriteRule ^qroku.*$ qrsayfa.php [NC]
+RewriteRule ^menu-(.*)$ menu.php?id=$1 [QSA,L]
+RewriteRule ^urun-(.*)$ urun-detay.php?id=$1 [QSA,L]
+RewriteRule ^hakkimizda.*$ hakkimizda.php [NC]
+RewriteRule ^garson-cagir.*$ garson-cagir.php [NC]
+RewriteRule ^hesap-iste.*$ hesap-iste.php [NC]
+RewriteRule ^siparis-durumu.*$ siparis-durum.php [NC]
+RewriteRule ^siparis-tamamla.*$ siparis-tamamla.php [NC]
+RewriteRule ^alerji-listesi.*$ alerjen.php [NC]
+RewriteRule ^sepetim.*$ sepet.php [NC]
+
+
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# “ea-php56” paketini varsayılan “PHP” programlama dili olarak ayarlayın.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php56 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
